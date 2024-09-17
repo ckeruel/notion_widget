@@ -1,0 +1,30 @@
+import React, { useState, useEffect } from 'react';
+import GoogleCalendar from 'react-google-calendar';
+
+function MyCalendar() {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    // Fetch events from Google Calendar using the API
+    const fetchEvents = async () => {
+      // ... API calls to fetch events ...
+      setEvents(fetchedEvents);
+    };
+
+    fetchEvents();
+  }, []);
+
+  // Handle event creation, editing, and deletion
+  const handleEventChange = (updatedEvent) => {
+    // ... API calls to update or delete events ...
+    setEvents(updatedEvents);
+  };
+
+  return (
+    <GoogleCalendar
+      events={events}
+      onEventChange={handleEventChange}
+      // ... other GoogleCalendar props ...
+    />
+  );
+}
